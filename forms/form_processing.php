@@ -13,11 +13,23 @@
     </pre>
     <br />
     <?php
-      $username = $_POST["username"];
-      $password = $_POST["password"];
+      // Good way to set default values - although better solution for checking for form submissions below:
+      $username = isset($_POST['username']) ? $_POST["username"] : "";
+      $password = isset($_POST['password']) ? $_POST["password"] : "";
+    ?>
 
+    <?php
+      if (isset($_POST['submit'])) {
+        echo "form was submitted";
+      }
+
+
+    ?>
+
+    <?php
       echo "{$username}: {$password}";
     ?>
+
 
 
   </body>
