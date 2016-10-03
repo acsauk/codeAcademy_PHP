@@ -6,7 +6,7 @@
 <?php
 
   // * presence
-  $value = "x";
+  $value = trim(" x");
   if (!isset($value) || empty($value)) {
     echo "Validation failed.<br />";
   }
@@ -60,7 +60,9 @@
   }
 
   // OR, for faster result, use strpos to see if string contains an @
-  // (will return a non 0 int if found in string which is a truthy object)
+  // (will return an int if found in string which is a truthy object.
+  // Using === ensures that a 0 int (interpreted as false by PHP) will
+  // not be evaluated as false, must exactly match)
   if (strpos($value, "@") === false) {
     echo "Validation failed. Must contain an @.<br />";
   }
