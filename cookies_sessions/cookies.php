@@ -6,8 +6,13 @@
   $name = "test";
   $value = "Hello";
   $expire = time() + (60*60*24*7); // add seconds to expiry date
-  //setcookie($name, $value, $expire);
-  setcookie($name);
+  setcookie($name, $value, $expire);
+
+  // setcookie($name); // Works but not clear that you are trying to unset cookie
+  // setcookie($name, null, $expire); // Clearer as using null
+  // setcookie($name, $value, time() - 3600); // Also clear as using previous time
+  // setcookie($name, null, time() - 3600); // Most clear as using previous time & null
+
 ?>
 
 <!DOCTYPE html>
